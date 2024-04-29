@@ -1,0 +1,130 @@
+table:
+  name: user_events
+  schema: public
+object_relationships:
+  - name: event_master
+    using:
+      foreign_key_constraint_on: event_id
+  - name: users
+    using:
+      manual_configuration:
+        column_mapping:
+          userid: id
+        insertion_order: null
+        remote_table:
+          name: users
+          schema: auth
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+      filter: {}
+      check: {}
+  - role: user
+    permission:
+      columns:
+        - dereg_event
+        - event_id
+        - id
+        - notification
+        - user_id
+        - is_recurring
+        - recurrance_end_date
+        - recurrance_start_date
+        - booking_status
+        - status
+        - dereg_date
+        - time_stamp
+        - userid
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}
+  - role: user
+    permission:
+      filter: {}

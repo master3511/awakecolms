@@ -1,0 +1,23 @@
+table:
+  name: event_history
+  schema: public
+object_relationships:
+  - name: event_master
+    using:
+      foreign_key_constraint_on: event_id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - event_id
+        - id
+        - created_at
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - event_id
+        - id
+        - created_at
+      filter: {}

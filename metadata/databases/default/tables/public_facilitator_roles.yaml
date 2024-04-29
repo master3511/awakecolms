@@ -1,0 +1,55 @@
+table:
+  name: facilitator_roles
+  schema: public
+array_relationships:
+  - name: event_faculties
+    using:
+      foreign_key_constraint_on:
+        column: faculty_type_id
+        table:
+          name: event_faculty
+          schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - id
+        - created_by
+        - description
+        - name
+        - created_at
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - created_by
+        - description
+        - name
+        - created_at
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - created_by
+        - description
+        - name
+        - created_at
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - created_by
+        - description
+        - name
+        - created_at
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

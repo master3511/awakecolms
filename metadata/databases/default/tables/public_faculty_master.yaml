@@ -1,0 +1,3 @@
+table:
+  name: faculty_master
+  schema: public

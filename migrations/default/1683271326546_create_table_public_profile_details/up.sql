@@ -1,0 +1,1 @@
+CREATE TABLE "public"."profile_details" ("user_id" uuid NOT NULL, "first_name" text NOT NULL, "second_name" text, "last_name" text, "birth_date" text NOT NULL, "bio" text, "profile_pic_path" text, "category" text, PRIMARY KEY ("user_id") , FOREIGN KEY ("user_id") REFERENCES "auth"."users"("id") ON UPDATE cascade ON DELETE cascade);

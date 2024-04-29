@@ -1,0 +1,64 @@
+table:
+  name: group_type
+  schema: public
+array_relationships:
+  - name: group_masters
+    using:
+      foreign_key_constraint_on:
+        column: type
+        table:
+          name: group_master
+          schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - id
+        - created_date
+        - created_by
+        - description
+        - name
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - created_date
+        - created_by
+        - description
+        - name
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - created_date
+        - created_by
+        - description
+        - name
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - created_date
+        - created_by
+        - description
+        - name
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - created_date
+        - created_by
+        - description
+        - name
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

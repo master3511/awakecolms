@@ -1,0 +1,101 @@
+table:
+  name: content_master
+  schema: public
+object_relationships:
+  - name: category_master
+    using:
+      foreign_key_constraint_on: category_id
+  - name: event_master
+    using:
+      foreign_key_constraint_on: associated_event_id
+  - name: group_master
+    using:
+      foreign_key_constraint_on: associated_group_id
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - associated_event_id
+        - associated_group_id
+        - category_id
+        - id
+        - expiry_date
+        - publishing_date
+        - upload_date
+        - file_name
+        - link
+        - published_by
+        - type
+        - uploaded_by
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - associated_event_id
+        - associated_group_id
+        - category_id
+        - id
+        - expiry_date
+        - publishing_date
+        - upload_date
+        - file_name
+        - link
+        - published_by
+        - type
+        - uploaded_by
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - associated_event_id
+        - associated_group_id
+        - category_id
+        - id
+        - expiry_date
+        - publishing_date
+        - upload_date
+        - file_name
+        - link
+        - published_by
+        - type
+        - uploaded_by
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - associated_event_id
+        - associated_group_id
+        - category_id
+        - id
+        - expiry_date
+        - publishing_date
+        - upload_date
+        - file_name
+        - link
+        - published_by
+        - type
+        - uploaded_by
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - associated_event_id
+        - associated_group_id
+        - category_id
+        - id
+        - expiry_date
+        - publishing_date
+        - upload_date
+        - file_name
+        - link
+        - published_by
+        - type
+        - uploaded_by
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

@@ -1,0 +1,63 @@
+table:
+  name: feed_management
+  schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - id
+        - default_feed
+        - status
+        - end_date
+        - start_date
+        - cover_img_path
+        - created_by
+        - description
+        - header_name
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - default_feed
+        - status
+        - end_date
+        - start_date
+        - cover_img_path
+        - created_by
+        - description
+        - header_name
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - default_feed
+        - status
+        - end_date
+        - start_date
+        - cover_img_path
+        - created_by
+        - description
+        - header_name
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - default_feed
+        - status
+        - end_date
+        - start_date
+        - cover_img_path
+        - created_by
+        - description
+        - header_name
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

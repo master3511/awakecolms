@@ -1,0 +1,19 @@
+table:
+  name: roles
+  schema: public
+array_relationships:
+  - name: user_roles
+    using:
+      foreign_key_constraint_on:
+        column: role_id
+        table:
+          name: user_role
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - name
+        - permissions

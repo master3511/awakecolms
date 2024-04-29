@@ -1,0 +1,135 @@
+table:
+  name: profile_details
+  schema: public
+object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - latest_version_available
+        - postalcode
+        - users_current_version
+        - birth_date
+        - address1
+        - address2
+        - bio
+        - category
+        - city
+        - country
+        - first_name
+        - gender
+        - last_name
+        - postcode
+        - profile_pic_path
+        - province
+        - roles
+        - second_name
+        - user_id
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - latest_version_available
+        - postalcode
+        - users_current_version
+        - birth_date
+        - address1
+        - address2
+        - bio
+        - category
+        - city
+        - country
+        - first_name
+        - gender
+        - last_name
+        - postcode
+        - profile_pic_path
+        - province
+        - roles
+        - second_name
+        - user_id
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - latest_version_available
+        - postalcode
+        - users_current_version
+        - birth_date
+        - address1
+        - address2
+        - bio
+        - category
+        - city
+        - country
+        - first_name
+        - gender
+        - last_name
+        - postcode
+        - profile_pic_path
+        - province
+        - roles
+        - second_name
+        - user_id
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - latest_version_available
+        - postalcode
+        - users_current_version
+        - birth_date
+        - address1
+        - address2
+        - bio
+        - category
+        - city
+        - country
+        - first_name
+        - gender
+        - last_name
+        - postcode
+        - profile_pic_path
+        - province
+        - roles
+        - second_name
+        - user_id
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - latest_version_available
+        - postalcode
+        - users_current_version
+        - birth_date
+        - address1
+        - address2
+        - bio
+        - category
+        - city
+        - country
+        - first_name
+        - gender
+        - last_name
+        - postcode
+        - profile_pic_path
+        - province
+        - roles
+        - second_name
+        - user_id
+      filter: {}
+      check: {}
+  - role: user
+    permission:
+      columns: []
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

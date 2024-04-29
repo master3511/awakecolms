@@ -1,0 +1,66 @@
+table:
+  name: feedback
+  schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+      filter: {}
+      check: {}
+  - role: user
+    permission:
+      columns:
+        - event_id
+        - id
+        - schedule_id
+        - answer
+        - question
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

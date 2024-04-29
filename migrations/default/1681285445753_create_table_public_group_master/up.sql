@@ -1,0 +1,1 @@
+CREATE TABLE "public"."group_master" ("id" bigserial NOT NULL, "category_id" bigint NOT NULL, "type" bigint NOT NULL, "name" text NOT NULL, "activation_date" date NOT NULL, "deactivation_date" date NOT NULL, "level_up_group" bigint NOT NULL, "decription" text NOT NULL, PRIMARY KEY ("id") , UNIQUE ("id"));

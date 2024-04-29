@@ -1,0 +1,3 @@
+table:
+  name: holiday_master
+  schema: public

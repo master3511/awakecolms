@@ -1,0 +1,67 @@
+table:
+  name: chat
+  schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - id
+        - chat_content
+        - contents
+        - type
+        - datetime
+        - receiver_id
+        - replying_to
+        - sender_id
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - chat_content
+        - contents
+        - datetime
+        - id
+        - receiver_id
+        - replying_to
+        - sender_id
+        - type
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - chat_content
+        - contents
+        - type
+        - datetime
+        - receiver_id
+        - replying_to
+        - sender_id
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - chat_content
+        - contents
+        - datetime
+        - id
+        - receiver_id
+        - replying_to
+        - sender_id
+        - type
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - id
+        - chat_content
+        - contents
+        - type
+        - datetime
+        - receiver_id
+        - replying_to
+        - sender_id
+      filter: {}
+      check: {}

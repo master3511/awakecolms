@@ -1,0 +1,155 @@
+table:
+  name: group_master
+  schema: public
+object_relationships:
+  - name: group_category
+    using:
+      foreign_key_constraint_on: category_id
+  - name: group_chat
+    using:
+      foreign_key_constraint_on:
+        column: id
+        table:
+          name: group_chat
+          schema: public
+  - name: group_events
+    using:
+      manual_configuration:
+        column_mapping:
+          id: group_id
+        insertion_order: null
+        remote_table:
+          name: group_event
+          schema: public
+  - name: group_type
+    using:
+      foreign_key_constraint_on: type
+  - name: task_masters
+    using:
+      manual_configuration:
+        column_mapping:
+          id: group_id
+        insertion_order: null
+        remote_table:
+          name: task_master
+          schema: public
+  - name: user_groups
+    using:
+      manual_configuration:
+        column_mapping:
+          id: group_id
+        insertion_order: null
+        remote_table:
+          name: user_groups
+          schema: public
+array_relationships:
+  - name: content_masters
+    using:
+      foreign_key_constraint_on:
+        column: associated_group_id
+        table:
+          name: content_master
+          schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - category_id
+        - id
+        - level_up_group
+        - type
+        - activation_date
+        - closure_date
+        - deactivation_date
+        - attendance_capacity
+        - cover_img_path
+        - decription
+        - duration
+        - name
+        - price
+        - publish_to
+        - status
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - category_id
+        - id
+        - level_up_group
+        - type
+        - activation_date
+        - closure_date
+        - deactivation_date
+        - attendance_capacity
+        - cover_img_path
+        - decription
+        - duration
+        - name
+        - price
+        - publish_to
+        - status
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - category_id
+        - id
+        - level_up_group
+        - type
+        - activation_date
+        - closure_date
+        - deactivation_date
+        - attendance_capacity
+        - cover_img_path
+        - decription
+        - duration
+        - name
+        - price
+        - publish_to
+        - status
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - category_id
+        - id
+        - level_up_group
+        - type
+        - activation_date
+        - closure_date
+        - deactivation_date
+        - attendance_capacity
+        - cover_img_path
+        - decription
+        - duration
+        - name
+        - price
+        - publish_to
+        - status
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - category_id
+        - id
+        - level_up_group
+        - type
+        - activation_date
+        - closure_date
+        - deactivation_date
+        - attendance_capacity
+        - cover_img_path
+        - decription
+        - duration
+        - name
+        - price
+        - publish_to
+        - status
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

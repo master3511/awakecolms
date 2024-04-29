@@ -1,0 +1,1 @@
+CREATE TABLE "public"."user_events" ("id" bigserial NOT NULL, "user_id" bigint NOT NULL, "event_id" bigint NOT NULL, PRIMARY KEY ("id") , FOREIGN KEY ("event_id") REFERENCES "public"."event_master"("id") ON UPDATE cascade ON DELETE cascade);

@@ -1,0 +1,7 @@
+table:
+  name: user_scubscription
+  schema: public
+object_relationships:
+  - name: subscription_master
+    using:
+      foreign_key_constraint_on: subscription_id

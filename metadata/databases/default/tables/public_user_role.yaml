@@ -1,0 +1,15 @@
+table:
+  name: user_role
+  schema: public
+object_relationships:
+  - name: role
+    using:
+      foreign_key_constraint_on: role_id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - role_id
+        - user_id

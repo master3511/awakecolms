@@ -1,0 +1,1 @@
+CREATE TABLE "public"."event_history" ("id" bigserial, "event_id" bigint NOT NULL, "created_at" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY ("id") , FOREIGN KEY ("event_id") REFERENCES "public"."event_master"("id") ON UPDATE restrict ON DELETE restrict, UNIQUE ("id"));

@@ -1,0 +1,11 @@
+table:
+  name: subscription_master
+  schema: public
+array_relationships:
+  - name: user_scubscriptions
+    using:
+      foreign_key_constraint_on:
+        column: subscription_id
+        table:
+          name: user_scubscription
+          schema: public

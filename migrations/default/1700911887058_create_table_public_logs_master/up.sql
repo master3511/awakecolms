@@ -1,0 +1,1 @@
+CREATE TABLE "public"."logs_master" ("id" bigserial NOT NULL, "deleted_frmtable" text, "deleted_by" text, "deleted_from" text, "deleted_time" timestamptz, "deleted_ip" text, "deleted_region" text, "content_type" text, PRIMARY KEY ("id") );

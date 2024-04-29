@@ -1,0 +1,62 @@
+table:
+  name: user_groups
+  schema: public
+object_relationships:
+  - name: group_master
+    using:
+      foreign_key_constraint_on: group_id
+  - name: users
+    using:
+      manual_configuration:
+        column_mapping:
+          user_id: id
+        insertion_order: null
+        remote_table:
+          name: users
+          schema: auth
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - group_id
+        - id
+        - notification
+        - user_id
+        - status
+        - time_stamp
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - group_id
+        - id
+        - notification
+        - user_id
+        - status
+        - time_stamp
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - group_id
+        - id
+        - notification
+        - user_id
+        - status
+        - time_stamp
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - group_id
+        - id
+        - notification
+        - user_id
+        - status
+        - time_stamp
+      filter: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

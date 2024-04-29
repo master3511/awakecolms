@@ -1,0 +1,1 @@
+CREATE TABLE "public"."user_scubscription" ("id" bigserial NOT NULL, "user_id" bigint NOT NULL, "subscription_id" bigint NOT NULL, "created_date" date NOT NULL DEFAULT now(), "activation_date" date, "valid_upto_date" date, PRIMARY KEY ("id") , FOREIGN KEY ("subscription_id") REFERENCES "public"."subscription_master"("id") ON UPDATE cascade ON DELETE cascade, UNIQUE ("id"));

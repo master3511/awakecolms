@@ -1,0 +1,53 @@
+table:
+  name: group_event
+  schema: public
+object_relationships:
+  - name: event_master
+    using:
+      foreign_key_constraint_on: event_id
+  - name: group_master
+    using:
+      foreign_key_constraint_on: group_id
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - event_id
+        - group_id
+        - id
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - event_id
+        - group_id
+        - id
+select_permissions:
+  - role: staff
+    permission:
+      columns:
+        - event_id
+        - group_id
+        - id
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - event_id
+        - group_id
+        - id
+      filter: {}
+update_permissions:
+  - role: staff
+    permission:
+      columns:
+        - event_id
+        - group_id
+        - id
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: staff
+    permission:
+      filter: {}

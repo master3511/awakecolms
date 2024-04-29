@@ -1,0 +1,53 @@
+table:
+  name: logs_master
+  schema: public
+insert_permissions:
+  - role: staff
+    permission:
+      check: {}
+      columns:
+        - id
+        - content_type
+        - deleted_by
+        - deleted_frmtable
+        - deleted_from
+        - deleted_ip
+        - deleted_region
+        - device_info
+        - geolocation
+        - ip_address
+        - timestamp
+        - deleted_time
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - content_type
+        - deleted_by
+        - deleted_frmtable
+        - deleted_from
+        - deleted_ip
+        - deleted_region
+        - deleted_time
+        - device_info
+        - geolocation
+        - id
+        - ip_address
+        - timestamp
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - content_type
+        - deleted_by
+        - deleted_frmtable
+        - deleted_from
+        - deleted_ip
+        - deleted_region
+        - device_info
+        - geolocation
+        - ip_address
+        - timestamp
+        - deleted_time
+      filter: {}
